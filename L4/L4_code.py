@@ -12,9 +12,9 @@ class GatingWidget():
 
     def __init__(self):
         interact(self.solve_and_plot,
-                 m0 = FloatSlider(value=0, min=0.0, max=1, step=0.1),  
-                 a = FloatSlider(value=1, min=0.0, max=10, step=0.1),  
-                 b = FloatSlider(value=1, min=0.0, max=10, step=0.1))
+                 m0 = FloatSlider(value=0, min=0.0, max=1, step=0.1, continuous_update=False),  
+                 a = FloatSlider(value=1, min=0.0, max=10, step=0.1, continuous_update=False),  
+                 b = FloatSlider(value=1, min=0.0, max=10, step=0.1, continuous_update=False))
      
     def dm_dt(self, m, t):
         return self.a*(1-m) - self.b*m
@@ -108,7 +108,7 @@ class ConstantConductancesWidget():
         
 
     def __init__(self):
-        interact(self.solve_and_plot,  I_amp = FloatSlider(value=1.0, min=0.0, max=10, step=0.1), V0 = FloatSlider(value=-60, min=-100.0, max=100, step=1),  gNa = FloatSlider(value=0, min=0, max=1, step=0.01),  gK = FloatSlider(value=0.2, min=0, max=1, step=0.01))
+        interact(self.solve_and_plot,  I_amp = FloatSlider(value=1.0, min=0.0, max=10, step=0.1, continuous_update=False), V0 = FloatSlider(value=-60, min=-100.0, max=100, step=1, continuous_update=False),  gNa = FloatSlider(value=0, min=0, max=1, step=0.01, continuous_update=False),  gK = FloatSlider(value=0.2, min=0, max=1, step=0.01, continuous_update=False))
 
 ########################################################
 ####################   Exercise 4   #################### 
@@ -180,10 +180,10 @@ class VoltageDependentConductancesWidget():
 
     def __init__(self):
         interact(self.solve_and_plot,
-                     I_amp = FloatSlider(value=0.0, min=0.0, max=10, step=0.1),
-                     V0 = FloatSlider(value=-80, min=-100.0, max=100, step=1),
-                     Vs = FloatSlider(value=-20, min=-100, max=100, step=1),
-                     d = FloatSlider(value=10, min=1, max=100, step=1))
+                     I_amp = FloatSlider(value=0.0, min=0.0, max=10, step=0.1, continuous_update=False),
+                     V0 = FloatSlider(value=-80, min=-100.0, max=100, step=1, continuous_update=False),
+                     Vs = FloatSlider(value=-20, min=-100, max=100, step=1, continuous_update=False),
+                     d = FloatSlider(value=10, min=1, max=100, step=1, continuous_update=False))
 
 
     
