@@ -1,12 +1,12 @@
 """
-Implements widgets that are used in the L2 notebook. Each widget is 
+Implements widgets that are used in the L3 notebook. Each widget is 
 implemented as a class that can be imported. To use a widget, create
 an object of the class in question and call its display method.
 
 Example:
 ========
-from L2_widgets import ReactionWidget
-ReactionWidget().display()
+from L3_widgets import VoltageClampWidget
+VoltageClampWidget().display()
 """
 
 import numpy as np
@@ -15,8 +15,10 @@ from scipy.integrate import odeint
 from ipywidgets import interact, IntSlider, FloatSlider
 
 
-class VoltageClampWidget():
-    """A widget solving the simple voltage clamp circuit with a step change."""
+class VoltageClampWidget:
+    """A widget solving the simple voltage clamp circuit with a step change.
+    Used for Exercise 1 of E3.
+    """
     Cm = 0.05 # nF
     Rs = 10 # MOhm
 
@@ -46,10 +48,11 @@ class VoltageClampWidget():
         ax1.plot(time, V)
         ax1.plot(time, self.V_target(time))
         ax1.set_ylabel('Mem. Potential [mV]')
+        ax1.legend(['V', 'Target'])
 
         # I_cap plot
         ax2.plot(time, self.I_cap(V, time))
-        ax2.set_ylabel('Cap. current [?]')
+        ax2.set_ylabel('Cap. current')
         ax2.set_xlabel('Time [ms]')
         ax2.axis((0, 10, -5, 5))
         plt.show()
@@ -61,12 +64,14 @@ class VoltageClampWidget():
 
 
 class MembraneWidget():
-    Cm = 0.05
+    """A widget that finds the equilibrium potential at different conductances.
 
+    Used for exercise 3 of E3.
+    """
+    Cm = 0.05
     g_Na = 0.005
     g_Ca = 0.002
     g_K = 0.02
-
     E_Na = 70
     E_K = -86
     E_Ca = 114
