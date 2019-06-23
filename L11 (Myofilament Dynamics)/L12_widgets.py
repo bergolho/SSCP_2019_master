@@ -54,8 +54,8 @@ class ReactionWidget():
         A1_0 = 0.01
         A2_0 = 0.01
         k_0_on = 0
-        k_0_off = 100
-        k_Ca_on = 120
+        k_0_off = 100.
+        k_Ca_on = 120.
         k_Ca_off = 50
         f_0 = 50
         f_prime_0 = 400
